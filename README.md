@@ -1,291 +1,388 @@
-# Java Programming Practice Solutions
+# Java Programming Practice Solutions - Learning Unit 3
 
-This repository contains solutions to the Java programming practice questions from Practise 1 Unit 1. Each question is solved with explanations and code examples.
-
----
-
-## **Table of Contents**
-
-1. [Question 1: Choosing Data Types](#question-1-choosing-data-types)
-2. [Question 2: Distance Conversion Program](#question-2-distance-conversion-program)
-3. [Question 3: Interactive Distance Conversion Program](#question-3-interactive-distance-conversion-program)
-4. [Question 4: Egg Order Calculator](#question-4-egg-order-calculator)
-5. [Question 5: Election Vote Percentage Calculator](#question-5-election-vote-percentage-calculator)
-6. [Question 6: Percentage Calculator](#question-6-percentage-calculator)
-7. [Question 7: Life Insurance Premium Calculator](#question-7-life-insurance-premium-calculator)
-8. [Question 8: Photo Frame Price Calculator](#question-8-photo-frame-price-calculator)
+This repository contains solutions to the Java programming practice questions from **Learning Unit 3**. Each question is solved with explanations and code examples. The tasks cover key concepts in Java, including **classes, constructors, methods, static methods, and object-oriented programming (OOP)**.
 
 ---
 
-## **Question 1: Choosing Data Types**
+## **Topics Covered in This Unit**
 
-**Task:** Choose the **best data type** for each of the following scenarios, **provide a typical value**, and **explain your choice**.
+### **1. Classes and Objects**
+- A **class** is a blueprint for creating objects. It defines the properties (fields) and behaviors (methods) that the objects will have.
+- An **object** is an instance of a class. It represents a real-world entity with its own state and behavior.
 
-| Scenario | Data Type | Typical Value | Explanation |
-|----------|-----------|---------------|-------------|
-| a) The number of people living in a single household | `int` | 4 | The number of people in a household is typically small, so `int` is sufficient. |
-| b) The year Nelson Mandela became a president | `int` | 1994 | Years are integers, and `int` can easily accommodate any year. |
-| c) The total number of people who attended a Kaizer Chiefs vs. Orlando Pirates match at FNB Stadium | `int` | 94736 | The number of attendees can be large, but `int` can handle it. |
-| d) The amount of money left in your bank account | `double` | 1234.56 | Money often requires decimal precision, so `double` is appropriate. |
-| e) The population of the earth | `long` | 7800000000 | The population of the earth is a very large number, so `long` is needed. |
-| f) The number of passengers on a bus | `int` | 50 | The number of passengers is relatively small, so `int` is sufficient. |
-| g) The price of a luxury Mercedes Benz SUV | `double` | 150000.00 | Prices often require decimal precision, so `double` is appropriate. |
+### **2. Constructors**
+- A **constructor** is a special method used to initialize objects. It has the same name as the class and does not have a return type.
+- **Default constructors** are provided by Java if no constructor is defined. They initialize fields to default values (e.g., `0`, `null`, etc.).
+- **Overloaded constructors** allow you to create objects with different initial states by accepting different parameters.
+
+### **3. Methods**
+- **Methods** define the behavior of a class. They can be **instance methods** (non-static) or **static methods**.
+- **Instance methods** operate on the instance variables of an object.
+- **Static methods** belong to the class rather than an instance and can be called without creating an object.
+
+### **4. Encapsulation**
+- Encapsulation is the concept of bundling data (fields) and methods that operate on the data within a single unit (class).
+- **Getter and setter methods** are used to access and modify private fields, ensuring controlled access to the data.
+
+### **5. Object-Oriented Programming (OOP)**
+- OOP is a programming paradigm based on the concept of objects, which can contain data and code to manipulate that data.
+- Key principles of OOP include **encapsulation**, **inheritance**, **polymorphism**, and **abstraction**.
 
 ---
 
-## **Question 2: Distance Conversion Program**
+## **Tasks and Solutions**
 
-**Task:** Write a Java program that declares named constants to represent the number of centimeters, inches, meters, and kilometers in a mile. Compute and display the value in centimeters, inches, meters, and kilometers.
+### **Task 1: Lease Class**
 
-```java
-public class DistanceConverter {
-    public static void main(String[] args) {
-        final double CM_PER_MILE = 160934.4;
-        final double INCHES_PER_MILE = 63360;
-        final double METERS_PER_MILE = 1609.344;
-        final double KM_PER_MILE = 1.609344;
+#### **Part a: Lease Class Implementation**
 
-        double miles = 10; // Example value
-
-        System.out.println(miles + " miles is:");
-        System.out.println((miles * CM_PER_MILE) + " centimeters");
-        System.out.println((miles * INCHES_PER_MILE) + " inches");
-        System.out.println((miles * METERS_PER_MILE) + " meters");
-        System.out.println((miles * KM_PER_MILE) + " kilometers");
-    }
-}
-```
-
-### Explanation:
-
-- We declare constants for the conversion factors.
-
-- We compute the equivalent distances in centimeters, inches, meters, and kilometers.
-
-- We display the results with explanatory text.
-
-
-## **Question 3: Interactive Distance Conversion Program**
-
-*Task:* Convert the program in Question 2 to an interactive application where the user inputs the number of miles.
+**Task:** Create a class named `Lease` with fields for an apartment tenant’s name, apartment number, monthly rent amount, and term of the lease in months. Include a default constructor, getter and setter methods, and a method to add a pet fee.
 
 ```java
-import java.util.Scanner;
+public class Lease {
+    private String tenantName;
+    private int apartmentNumber;
+    private double monthlyRent;
+    private int leaseTerm;
 
-public class InteractiveDistanceConverter {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of miles: ");
-        double miles = scanner.nextDouble();
+    // Default constructor
+    public Lease() {
+        this.tenantName = "XXX";
+        this.apartmentNumber = 0;
+        this.monthlyRent = 1000;
+        this.leaseTerm = 12;
+    }
 
-        final double CM_PER_MILE = 160934.4;
-        final double INCHES_PER_MILE = 63360;
-        final double METERS_PER_MILE = 1609.344;
-        final double KM_PER_MILE = 1.609344;
+    // Getter and Setter methods
+    public String getTenantName() {
+        return tenantName;
+    }
 
-        System.out.println(miles + " miles is:");
-        System.out.println((miles * CM_PER_MILE) + " centimeters");
-        System.out.println((miles * INCHES_PER_MILE) + " inches");
-        System.out.println((miles * METERS_PER_MILE) + " meters");
-        System.out.println((miles * KM_PER_MILE) + " kilometers");
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
+    }
+
+    public int getApartmentNumber() {
+        return apartmentNumber;
+    }
+
+    public void setApartmentNumber(int apartmentNumber) {
+        this.apartmentNumber = apartmentNumber;
+    }
+
+    public double getMonthlyRent() {
+        return monthlyRent;
+    }
+
+    public void setMonthlyRent(double monthlyRent) {
+        this.monthlyRent = monthlyRent;
+    }
+
+    public int getLeaseTerm() {
+        return leaseTerm;
+    }
+
+    public void setLeaseTerm(int leaseTerm) {
+        this.leaseTerm = leaseTerm;
+    }
+
+    // Method to add pet fee
+    public void addPetFee() {
+        this.monthlyRent += 250;
+        explainPetPolicy();
+    }
+
+    // Static method to explain pet policy
+    public static void explainPetPolicy() {
+        System.out.println("A pet fee of R250 has been added to your monthly rent.");
     }
 }
+
 ```
 
-### Explanation:
+__Explanation__:
 
-- We use Scanner to accept user input for the number of miles.
+- The Lease class has fields for tenant name, apartment number, monthly rent, and lease term.
 
-- The rest of the program remains the same as in Question 2.
+- A default constructor initializes the fields with default values.
 
+- Getter and setter methods allow access to and modification of the fields.
 
-## **Question 4: Egg Order Calculator**
-**Task**: __Write__ a program that __calculates__ the __cost of an egg order__ based __on the number of eggs__.
-
-```java
-
-import java.util.Scanner;
-
-public class EggOrderCalculator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of eggs: ");
-        int eggs = scanner.nextInt();
-
-        int dozens = eggs / 12;
-        int looseEggs = eggs % 12;
-
-        double totalCost = (dozens * 59.99) + (looseEggs * 8.50);
-
-        System.out.println("You ordered " + eggs + " eggs. That's " + dozens + " dozen at R59.99 per dozen and " + looseEggs + " loose eggs at R8.50 each for a total of R" + totalCost);
-    }
-}
-```
-
-### Explanation:
-
-- We calculate the number of dozens and loose eggs.
-
-- We compute the total cost based on the given prices.
-
-- We display the result with a full explanation.
+-The addPetFee() method adds R250 to the monthly rent and calls the static explainPetPolicy() method to display a message.
 
 
-## **Question 5: Election Vote Percentage Calculator**
-**Task**: Write a program that calculates the percentage of votes each political structure received.
+#### **Part b: TestLease Class Implementation***
+**Task:** Create a TestLease class to test the Lease class. Declare four Lease objects, prompt the user for values for three of them, and use default values for the fourth.
 
 ```java
 
 import java.util.Scanner;
 
-public class ElectionVoteCalculator {
+public class TestLease {
     public static void main(String[] args) {
+        Lease lease1 = getData();
+        Lease lease2 = getData();
+        Lease lease3 = getData();
+        Lease lease4 = new Lease(); // Default values
+
+        showValues(lease1);
+        lease1.addPetFee();
+        showValues(lease1);
+
+        showValues(lease2);
+        showValues(lease3);
+        showValues(lease4);
+    }
+
+    // Method to get user input for Lease fields
+    public static Lease getData() {
         Scanner scanner = new Scanner(System.in);
+        Lease lease = new Lease();
 
-        System.out.print("Enter votes for EFFSC: ");
-        int effscVotes = scanner.nextInt();
-        System.out.print("Enter votes for SASCO: ");
-        int sascoVotes = scanner.nextInt();
-        System.out.print("Enter votes for ANCYL: ");
-        int ancylVotes = scanner.nextInt();
+        System.out.print("Enter tenant name: ");
+        lease.setTenantName(scanner.nextLine());
 
-        int totalVotes = effscVotes + sascoVotes + ancylVotes;
+        System.out.print("Enter apartment number: ");
+        lease.setApartmentNumber(scanner.nextInt());
 
-        double effscPercentage = (effscVotes * 100.0) / totalVotes;
-        double sascoPercentage = (sascoVotes * 100.0) / totalVotes;
-        double ancylPercentage = (ancylVotes * 100.0) / totalVotes;
+        System.out.print("Enter monthly rent: ");
+        lease.setMonthlyRent(scanner.nextDouble());
 
-        System.out.println("EFFSC received " + effscPercentage + "% of the vote.");
-        System.out.println("SASCO received " + sascoPercentage + "% of the vote.");
-        System.out.println("ANCYL received " + ancylPercentage + "% of the vote.");
+        System.out.print("Enter lease term (in months): ");
+        lease.setLeaseTerm(scanner.nextInt());
+
+        return lease;
+    }
+
+    // Method to display Lease details
+    public static void showValues(Lease lease) {
+        System.out.println("\nTenant Name: " + lease.getTenantName());
+        System.out.println("Apartment Number: " + lease.getApartmentNumber());
+        System.out.println("Monthly Rent: R" + lease.getMonthlyRent());
+        System.out.println("Lease Term: " + lease.getLeaseTerm() + " months");
     }
 }
 
 ```
-### Explanation:
+__Explanation:__
 
-- We accept the number of votes for each political structure.
+- The TestLease class declares four Lease objects.
 
-- We calculate the total votes and the percentage of votes each structure received.
+- The getData() method prompts the user for input and returns a Lease object with the provided values.
 
-- We display the results.
+- The showValues() method displays the details of a Lease object.
+
+-The addPetFee() method is called on lease1, and the results are displayed before and after adding the pet fee.
 
 
-## **Question 6: Percentage Calculator**
-**Task**: Create an application that calculates the percentage of one number relative to another.
+ ### ***Task 2: BloodData and Patient Classes**
+#### **Part a: BloodData Class Implementation**
+**Task**: Create a BloodData class with fields for blood type and Rh factor. Include a default constructor and an overloaded constructor.
+
+```java
+
+public class BloodData {
+    private String bloodType;
+    private String rhFactor;
+
+    // Default constructor
+    public BloodData() {
+        this.bloodType = "O";
+        this.rhFactor = "+";
+    }
+
+    // Overloaded constructor
+    public BloodData(String bloodType, String rhFactor) {
+        this.bloodType = bloodType;
+        this.rhFactor = rhFactor;
+    }
+
+    // Getter and Setter methods
+    public String getBloodType() {
+        return bloodType;
+    }
+
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
+
+    public String getRhFactor() {
+        return rhFactor;
+    }
+
+    public void setRhFactor(String rhFactor) {
+        this.rhFactor = rhFactor;
+    }
+}
+
+```
+
+
+__Explanation:__
+
+- The BloodData class has fields for blood type and Rh factor.
+
+- A default constructor initializes the fields to "O" and "+".
+
+- An overloaded constructor allows setting custom values for the fields.
+
+#### **Part b: TestBloodData Application**
+**Task:** Create a TestBloodData application to test the BloodData class. Declare two objects, one with user input and one with default values.
 
 ```java
 
 import java.util.Scanner;
 
-public class Percentages {
+public class TestBloodData {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the first number: ");
-        double num1 = scanner.nextDouble();
-        System.out.print("Enter the second number: ");
-        double num2 = scanner.nextDouble();
 
-        computePercent(num1, num2);
-        computePercent(num2, num1);
-    }
+        // Object with user input
+        System.out.print("Enter blood type (O, A, B, AB): ");
+        String bloodType = scanner.nextLine();
 
-    public static void computePercent(double a, double b) {
-        double percentage = (a / b) * 100;
-        System.out.println(a + " is " + percentage + "% of " + b);
+        System.out.print("Enter Rh factor (+ or -): ");
+        String rhFactor = scanner.nextLine();
+
+        BloodData userBloodData = new BloodData(bloodType, rhFactor);
+
+        // Object with default values
+        BloodData defaultBloodData = new BloodData();
+
+        // Display details
+        System.out.println("\nUser Blood Data: " + userBloodData.getBloodType() + userBloodData.getRhFactor());
+        System.out.println("Default Blood Data: " + defaultBloodData.getBloodType() + defaultBloodData.getRhFactor());
+
+        // Change default object to user values
+        defaultBloodData.setBloodType(userBloodData.getBloodType());
+        defaultBloodData.setRhFactor(userBloodData.getRhFactor());
+
+        // Confirm changes
+        System.out.println("\nUpdated Default Blood Data: " + defaultBloodData.getBloodType() + defaultBloodData.getRhFactor());
     }
 }
 
 ```
-### Explanation:
 
-- We accept two numbers from the user.
+__Explanation:__
 
-- We pass these numbers to the computePercent method, which calculates and displays the percentage.
+- The TestBloodData application declares two BloodData objects.
 
-- We call the method twice, swapping the order of the numbers.
+* One object is initialized with user input, and the other uses default values.
 
+* The program displays the details of both objects and updates the default object with the user's values.
 
-## **Question 7: Life Insurance Premium Calculator**
-**Task:** Write a program that calculates the annual policy premium based on the customer's age.
+#### **Part c: Patient Class Implementation**
+**Task:** Create a Patient class with fields for ID number, age, and BloodData. Include a default constructor and an overloaded constructor.
+
+```java
+
+public class Patient {
+    private int idNumber;
+    private int age;
+    private BloodData bloodData;
+
+    // Default constructor
+    public Patient() {
+        this.idNumber = 0;
+        this.age = 0;
+        this.bloodData = new BloodData();
+    }
+
+    // Overloaded constructor
+    public Patient(int idNumber, int age, BloodData bloodData) {
+        this.idNumber = idNumber;
+        this.age = age;
+        this.bloodData = bloodData;
+    }
+
+    // Getter methods
+    public int getIdNumber() {
+        return idNumber;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public BloodData getBloodData() {
+        return bloodData;
+    }
+}
+
+```
+
+__Explanation:__
+
+- The Patient class has fields for ID number, age, and BloodData.
+
+- A default constructor initializes the fields to 0, 0, and default BloodData values.
+
+- An overloaded constructor allows setting custom values for all fields.
+
+#### **Part d: Patient Application**
+**Task:** Create an application that declares three Patient objects. Use default values for one, prompt the user for values for the second, and use default BloodData values for the third.
 
 ```java
 
 import java.util.Scanner;
 
-public class LifeInsurancePremium {
+public class TestPatient {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the current year: ");
-        int currentYear = scanner.nextInt();
-        System.out.print("Enter your birth year: ");
-        int birthYear = scanner.nextInt();
 
-        int age = currentYear - birthYear;
-        int premium = calculatePremium(age);
+        // Patient 1: Default values
+        Patient patient1 = new Patient();
+        System.out.println("\nPatient 1 (Default):");
+        System.out.println("ID: " + patient1.getIdNumber());
+        System.out.println("Age: " + patient1.getAge());
+        System.out.println("Blood Data: " + patient1.getBloodData().getBloodType() + patient1.getBloodData().getRhFactor());
 
-        System.out.println("Your annual premium is: R" + premium);
-    }
+        // Patient 2: User input
+        System.out.print("\nEnter ID for Patient 2: ");
+        int id2 = scanner.nextInt();
 
-    public static int calculatePremium(int age) {
-        int decade = age / 10;
-        return (decade + 15) * 20;
+        System.out.print("Enter age for Patient 2: ");
+        int age2 = scanner.nextInt();
+
+        System.out.print("Enter blood type for Patient 2 (O, A, B, AB): ");
+        String bloodType2 = scanner.next();
+
+        System.out.print("Enter Rh factor for Patient 2 (+ or -): ");
+        String rhFactor2 = scanner.next();
+
+        BloodData bloodData2 = new BloodData(bloodType2, rhFactor2);
+        Patient patient2 = new Patient(id2, age2, bloodData2);
+
+        System.out.println("\nPatient 2 (User Input):");
+        System.out.println("ID: " + patient2.getIdNumber());
+        System.out.println("Age: " + patient2.getAge());
+        System.out.println("Blood Data: " + patient2.getBloodData().getBloodType() + patient2.getBloodData().getRhFactor());
+
+        // Patient 3: User input for Patient data, default BloodData
+        System.out.print("\nEnter ID for Patient 3: ");
+        int id3 = scanner.nextInt();
+
+        System.out.print("Enter age for Patient 3: ");
+        int age3 = scanner.nextInt();
+
+        Patient patient3 = new Patient(id3, age3, new BloodData());
+
+        System.out.println("\nPatient 3 (Default BloodData):");
+        System.out.println("ID: " + patient3.getIdNumber());
+        System.out.println("Age: " + patient3.getAge());
+        System.out.println("Blood Data: " + patient3.getBloodData().getBloodType() + patient3.getBloodData().getRhFactor());
     }
 }
 
 ```
-## Explanation:
 
-- We calculate the customer's age based on the current year and birth year.
+__Explanation:__
 
-- We pass the age to the calculatePremium method, which computes the premium.
+- The TestPatient application declares three Patient objects.
 
-- We display the premium.
+- The first object uses default values.
 
+- The second object is initialized with user input.
 
-## **Question 8: Photo Frame Price Calculator**
-**Task:** Create a class with overloaded methods to compute the price of photo frames.
-
-```java
-
-import java.util.Scanner;
-
-public class PhotoFrame {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of photo frames: ");
-        int quantity = scanner.nextInt();
-        System.out.print("Enter the reward amount: ");
-        double reward = scanner.nextDouble();
-
-        System.out.println("Total due (no parameters): " + computePrice());
-        System.out.println("Total due (quantity): " + computePrice(quantity));
-        System.out.println("Total due (quantity and reward): " + computePrice(quantity, reward));
-    }
-
-    public static double computePrice() {
-        return 250 * 1.15; // 15% VAT
-    }
-
-    public static double computePrice(int quantity) {
-        return (250 * quantity) * 1.15; // 15% VAT
-    }
-
-    public static double computePrice(int quantity, double reward) {
-        return ((250 * quantity) - reward) * 1.15; // 15% VAT
-    }
-}
-
-```
-### Explanation:
-
-- We have three overloaded computePrice methods:
-
-- One with no parameters (default price for one frame).
-
-- One with a quantity parameter.
-
-- One with both quantity and reward parameters.
-
-- We prompt the user for input and test all three methods.
-
+- The third object uses user input for patient data but default values for BloodData.
