@@ -55,10 +55,18 @@ public class Lease {
 
     // Getter and Setter methods
     public String getTenantName() {
-        return tenantName;
+        if(this.leaseTerm <= 0) {
+            return "No tenant";
+        }else{
+            return tenantName;
+        }        
     }
 
     public void setTenantName(String tenantName) {
+        if(this.leaseTerm <= 0) {
+            System.out.println("No tenant");
+            return;
+        }
         this.tenantName = tenantName;
     }
 
@@ -88,7 +96,11 @@ public class Lease {
 
     // Method to add pet fee
     public void addPetFee() {
-        this.monthlyRent += 250;
+        /*
+         * Lease mtLease = new Lease();
+         * double mr = mtLease.getMonthlyRent();
+        */
+        this.monthlyRent +=  250;
         explainPetPolicy();
     }
 
@@ -119,6 +131,7 @@ __Explanation__:
 import java.util.Scanner;
 
 public class TestLease {
+
     public static void main(String[] args) {
         Lease lease1 = getData();
         Lease lease2 = getData();
@@ -186,7 +199,7 @@ public class BloodData {
     private String rhFactor;
 
     // Default constructor
-    public BloodData() {
+    public BloodData () {
         this.bloodType = "O";
         this.rhFactor = "+";
     }
@@ -233,6 +246,7 @@ __Explanation:__
 
 import java.util.Scanner;
 
+
 public class TestBloodData {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -240,7 +254,7 @@ public class TestBloodData {
         // Object with user input
         System.out.print("Enter blood type (O, A, B, AB): ");
         String bloodType = scanner.nextLine();
-
+        
         System.out.print("Enter Rh factor (+ or -): ");
         String rhFactor = scanner.nextLine();
 
