@@ -1,7 +1,3 @@
-Below are complete Java solutions for each of the four practice problems, along with step-by-step explanations of the design and implementation choices. Feel free to adapt names or data structures as you see fit!
-
----
-
 ## 1) Bank & Account classes
 
 ```java
