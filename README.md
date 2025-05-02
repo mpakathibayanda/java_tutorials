@@ -1,3 +1,7 @@
+[](https://www.microsoft.com/en-za/microsoft-teams/join-a-meeting)
+Meeting ID: 931 826 816 585 9
+Passcode: 5uF7At
+[Teams](https://teams.microsoft.com/v2/)
 # Java Inheritance Tutorial 🌱➡️🌳
 
 Welcome to this simple guide on **inheritance** in Java! Learn how classes can share properties and methods, just like kids inherit traits from parents. Let's dive in! 🏊♂️
